@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Pizzería — Sistema de Gestión
 **Equipo:** Tridente Alpha
 **Entrega final:** 31 de octubre
@@ -28,3 +29,7 @@ App de gestión de pedidos, clientes y reportes básicos.
 *   `db/` → Base de datos y QA.
 *   `backend/` → Código del servidor (dividido en `martin/` y `mario/`).
 *   `frontend/` → Pantallas HTML/CSS.
+=======
+# pizzeria-tridente-alpha
+Sistema de gestion para pizzería - Equipo Tridente Alpha
+>>>>>>> 9a61ac236510962b14ce3b375c42ba4ba9fa42c8
