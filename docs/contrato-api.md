@@ -1,18 +1,18 @@
-# Contrato de API — Pizzería Tridente Alpha
+# Contrato de API (MVP - Sprint 1)
 
-## ¿Qué es este documento?
-Es el "acuerdo" entre el frontend y el backend. Dice exactamente qué direcciones (endpoints) existen, qué datos reciben y qué datos devuelven. Así el Developer de Frontend y los Developers de APIs saben cómo comunicarse sin adivinar.
+## 1. Crear Pedido (HU01, HU04)
+*   **Ruta:** `POST /api/pedidos`
+*   **Envía:** `{ "pizza": "Hawaiana", "tamano": "Grande", "bebida": "Coca-Cola", "total": 150, "horno": 1 }`
+*   **Retorna:** `{ "folio": "#01", "mensaje": "Pedido creado con éxito" }`
 
-## APIs del Developer de pedidos y clientes
-| Método | Ruta | Qué recibe (Body) | Qué responde |
-|---|---|---|---|
-| POST | `/pedido` | `{cliente_id, pizzas:[{pizza_id, cantidad}], total}` | 201 con el pedido creado |
-| GET | `/pedido` | Nada | Lista de todos los pedidos |
-| POST | `/cliente` | `{nombre, telefono, es_estudiante}` | 201 con el cliente creado |
+## 2. Obtener Pedidos Activos para Cocina (HU08)
+*   **Ruta:** `GET /api/pedidos/activos`
+*   **Retorna:** `[{ "folio": "#01", "pizza": "Hawaiana", "horno": 1, "estado": "En horno" }]`
 
-## APIs del Developer de reportes
-| Método | Ruta | Qué recibe (Body) | Qué responde |
-|---|---|---|---|
-| GET | `/pizzas` | Nada | Lista de las 4 pizzas con precios |
-| POST | `/descuento` | `{cliente_id, total}` | `{total_con_descuento}` |
-| GET | `/reporte/pizzas` | Nada | `[{pizza, cantidad_vendida}]` |
+## 3. Marcar Pedido como Completado (HU10)
+*   **Ruta:** `PUT /api/pedidos/:folio/completar`
+*   **Retorna:** `{ "mensaje": "Pedido #01 completado y horno liberado" }`
+
+## 4. Obtener Resumen de Ventas (HU12)
+*   **Ruta:** `GET /api/ventas/resumen`
+*   **Retorna:** `{ "total_dia": 450, "pedidos": 3, "lista_folios": ["#01", "#02", "#03"] }`
