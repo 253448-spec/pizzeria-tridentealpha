@@ -1,0 +1,19 @@
+### Pruebas del módulo de ventas - Mario (extensión "REST Client" de VS Code)
+### Requiere el servidor corriendo (backend/server.js). Ajusta el puerto si es otro.
+@baseUrl = http://localhost:3000
+
+### 1. Resumen del día actual (sin parámetro fecha)
+### Respuesta esperada (200): { "fecha": "...", "total_dia": 0, "pedidos": 0, "lista_folios": [] }
+GET {{baseUrl}}/api/ventas/resumen
+
+### 2. Resumen de un día específico
+GET {{baseUrl}}/api/ventas/resumen?fecha=2026-10-29
+
+### 3. Día sin ventas pagadas -> 200 con total_dia 0, pedidos 0 y lista_folios []
+GET {{baseUrl}}/api/ventas/resumen?fecha=2000-01-01
+
+### 4. Formato de fecha inválido -> 400
+GET {{baseUrl}}/api/ventas/resumen?fecha=29-10-2026
+
+### 5. Fecha inexistente -> 400
+GET {{baseUrl}}/api/ventas/resumen?fecha=2026-02-30
